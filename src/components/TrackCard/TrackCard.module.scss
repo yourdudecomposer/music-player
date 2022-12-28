@@ -1,0 +1,9 @@
+@use '../../assets/colors.scss' as  colors;
+
+.card{
+    background-color: colors.$orange;
+    width: 150px;
+    height: 150px;
+    border-radius: 50px;
+    margin-bottom: 5px;
+}

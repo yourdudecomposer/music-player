@@ -1,0 +1,14 @@
+@use '../../assets/colors.scss' as colors;
+.wrapper{
+    background-color: colors.$blue;
+    
+    .card-container{
+        margin: 0 auto;
+        max-width: 814px;
+        padding: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: space-evenly;
+    }
+}
