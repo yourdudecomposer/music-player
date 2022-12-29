@@ -1,20 +1,36 @@
-import React, { useEffect, useRef } from 'react';
-import classes from './Player.module.scss'
+import React, { useEffect, useState } from "react";
+import classes from "./Player.module.scss";
+import pauseImg from "../../assets/images/pause.svg";
+import playImg from "../../assets/images/play.svg";
+function Player({ trackName, audioTag, isPlaying,togglePlay }) {
+  const [currentImg, setCurrentImg] = useState(playImg);
 
-function Player({trackName}) {
+  useEffect(() => {
+    if (isPlaying) {
+      setCurrentImg(pauseImg);
+    } else {
+      setCurrentImg(playImg);
+    }
+  }, [isPlaying]);
 
-const f = useRef()
-    console.log(f.current)
-useEffect(()=>{
-    f.current.play()
-},[trackName])
-
-    console.log(trackName)
-    return ( 
-        <div className={classes["wrapper"]}>
-            <audio ref = {f} controls src={'audio/' + trackName + '.mp3'} ></audio>
+  console.log(trackName);
+  return (
+    <div className={classes["wrapper"]}>
+      <audio ref={audioTag} src={"audio/" + trackName + ".mp3"}></audio>
+      {/* <button onClick={()=>audioTag.current.pause()} >pause</button> */}
+      <div className={classes["container"]}>
+        <div className={classes["timeline"]}>
+          <div className={classes["buttons"]}>
+            <button>prev</button>
+            <button className={classes["play"]}>
+              <img onClick={()=>togglePlay(trackName)} src={currentImg} />
+            </button>
+            <button>next</button>
+          </div>
         </div>
-     );
+      </div>
+    </div>
+  );
 }
 
 export default Player;
