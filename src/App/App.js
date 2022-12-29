@@ -10,6 +10,7 @@ function App() {
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [trackName, setTrackName] = useState("");
+  const [dFlex, setDFlex] = useState({});
 
   function play(newTrackName) {
     if (newTrackName !== trackName) {
@@ -25,6 +26,7 @@ function App() {
   }
 
   function onCardClick(newTrackName) {
+    setDFlex({transform: 'translateY(0px)'})
     setTrackName(newTrackName);
     play(newTrackName);
   }
@@ -41,7 +43,7 @@ function togglePlay(newTrackName) {
       <Header />
       <CardList onCardClick={onCardClick} />
       <IntroText />
-      <Player togglePlay={togglePlay} isPlaying={isPlaying} audioTag={audioTag} trackName={trackName} />
+      <Player dFlex={dFlex} togglePlay={togglePlay} isPlaying={isPlaying} audioTag={audioTag} trackName={trackName} />
     </div>
   );
 }

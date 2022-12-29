@@ -1,4 +1,5 @@
 .wrapper {
+  
   width: 100%;
   background-color: #fff;
   position: fixed;
@@ -7,6 +8,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+transform: translateY(80px);
+transition-duration: .5s;
   .container {
     width: 80%;
     .timeline {
@@ -18,12 +21,26 @@
       align-items: center;
       .buttons {
         .play {
-          img {
+          border-radius: 50%;
+          width: 41px;
+          height: 41px;
+          background-color: #fff;
+          svg {
+            border-radius: 50%;
             width: 40px;
             height: 40px;
+            .play{
+              transform: translateX(1px);
+              
+            }
+            .pause{
+              transform: translateX(-1px);
+            }
           }
         }
       }
     }
   }
 }
+
+
