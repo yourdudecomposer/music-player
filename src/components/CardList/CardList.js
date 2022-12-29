@@ -3,14 +3,12 @@ import React from "react";
 import TrackCard from "../TrackCard/TrackCard";
 import arr from "../../arr";
 
-function CardList() {
-
-
+function CardList({ onCardClick }) {
   return (
     <div className={classes["wrapper"]}>
       <div className={classes["card-container"]}>
         {arr.map((e, idx) => (
-          <TrackCard req={e} key={idx} />
+          <TrackCard onCardClick={onCardClick} trackName={e} key={idx} />
         ))}
       </div>
     </div>
