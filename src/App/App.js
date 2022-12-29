@@ -6,6 +6,9 @@ import IntroText from "../components/IntroText/IntroText";
 import { useState } from "react";
 
 function App() {
+
+
+
   const [trackName, setTrackName] = useState('')
   function onCardClick(trackName) {
     setTrackName(trackName)
