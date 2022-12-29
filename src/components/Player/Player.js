@@ -17,7 +17,7 @@ function Player({ trackName, audioTag, isPlaying, togglePlay }) {
   console.log(trackName);
   return (
     <div className={classes["wrapper"]}>
-      <audio preload="auto" ref={audioTag} src={"https://mp3.chillhop.com/serve.php/?mp3=9222"}></audio>
+      <audio preload="auto" ref={audioTag} src={"audio/" + trackName + ".mp3"}></audio>
       {/* <button onClick={()=>audioTag.current.pause()} >pause</button> */}
       <div className={classes["container"]}>
         <div className={classes["timeline"]}>
