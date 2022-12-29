@@ -15,6 +15,7 @@ transition-duration: .5s;
     .timeline {
       height: 10px;
       color: brown;
+      border: 1px solid;
       border-radius: 5px;
       display: flex;
       justify-content: center;
@@ -25,7 +26,9 @@ transition-duration: .5s;
           width: 41px;
           height: 41px;
           background-color: #fff;
+border: none;
           svg {
+            border: 1px solid black;
             border-radius: 50%;
             width: 40px;
             height: 40px;
@@ -34,7 +37,7 @@ transition-duration: .5s;
               
             }
             .pause{
-              transform: translateX(-1px);
+              transform: translateX(0px);
             }
           }
         }
