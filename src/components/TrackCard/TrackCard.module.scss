@@ -1,10 +1,13 @@
 @use '../../assets/colors.scss' as  colors;
 
+$size:  160px;
+
 .card{
     background-color: colors.$orange;
-    width: 150px;
-    height: 150px;
+    width: $size;
+    height: $size;
     border-radius: 25%;
     margin-bottom: 5px;
     box-shadow: 10px 10px 23px -11px rgba(120, 82, 56, 0.78);
+    border: .1px solid black;
 }

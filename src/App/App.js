@@ -3,7 +3,7 @@ import CardList from "../components/CardList/CardList";
 import Header from "../components/Header/Header";
 import Player from "../components/Player/Player";
 import IntroText from "../components/IntroText/IntroText";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 function App() {
   const audioTag = useRef();
@@ -18,32 +18,40 @@ function App() {
         audioTag.current.play();
       });
     } else audioTag.current.play();
-    setIsPlaying(true)
+
+    setIsPlaying(true);
   }
+
   function pause() {
     audioTag.current.pause();
-    setIsPlaying(false)
+    setIsPlaying(false);
   }
 
   function onCardClick(newTrackName) {
-    setDFlex({transform: 'translateY(0px)'})
+    setDFlex({ transform: "translateY(0px)" });
     setTrackName(newTrackName);
     play(newTrackName);
   }
-function togglePlay(newTrackName) {
-  if (isPlaying) {
-    pause() 
-  } else{
-    play(newTrackName)
+  function togglePlay(newTrackName) {
+    if (isPlaying) {
+      pause();
+    } else {
+      play(newTrackName);
+    }
   }
-}
 
   return (
     <div className={classes["wrapper"]}>
       <Header />
       <CardList onCardClick={onCardClick} />
       <IntroText />
-      <Player dFlex={dFlex} togglePlay={togglePlay} isPlaying={isPlaying} audioTag={audioTag} trackName={trackName} />
+      <Player
+        dFlex={dFlex}
+        togglePlay={togglePlay}
+        isPlaying={isPlaying}
+        audioTag={audioTag}
+        trackName={trackName}
+      />
     </div>
   );
 }

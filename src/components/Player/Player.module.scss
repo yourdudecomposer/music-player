@@ -1,5 +1,6 @@
+@use '../../assets/colors.scss' as colors;
+
 .wrapper {
-  
   width: 100%;
   background-color: #fff;
   position: fixed;
@@ -8,13 +9,35 @@
   display: flex;
   justify-content: center;
   align-items: center;
-transform: translateY(80px);
-transition-duration: .5s;
+  transform: translateY(80px);
+  transition-duration: 0.5s;
   .container {
     width: 80%;
+    // border: solid;
+    position: relative;
+    .time{
+      position: absolute;
+      background-color: red;
+      left: 0;
+      top: 0;
+      height: 100%;
+      border-radius: 5px;
+      z-index: -3;
+    }
+    .load{
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      border-radius: 5px;
+      background-color: green;
+
+      z-index: -4;
+      width: 100%;
+    }
     .timeline {
       height: 10px;
-      color: brown;
+      color: #000;
       border: 1px solid;
       border-radius: 5px;
       display: flex;
@@ -26,17 +49,16 @@ transition-duration: .5s;
           width: 41px;
           height: 41px;
           background-color: #fff;
-border: none;
+          border: none;
           svg {
             border: 1px solid black;
             border-radius: 50%;
             width: 40px;
             height: 40px;
-            .play{
+            .play {
               transform: translateX(1px);
-              
             }
-            .pause{
+            .pause {
               transform: translateX(0px);
             }
           }
@@ -45,5 +67,3 @@ border: none;
     }
   }
 }
-
-

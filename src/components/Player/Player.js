@@ -1,21 +1,52 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./Player.module.scss";
 
-function Player({ trackName, audioTag, isPlaying, togglePlay,dFlex }) {
+function Player({ trackName, audioTag, isPlaying, togglePlay, dFlex }) {
+  const [width, setWidth] = useState("0%");
+  const [widthLoad, setWidthLoad] = useState("0%");
 
+  const time = {
+    width: width,
+  };
+  const load = {
+    width: widthLoad,
+  };
 
+  useEffect(() => {
+    for (let i = 0; i < audioTag.current.buffered.length; i++) {
+      const startX = audioTag.current.buffered.start(i);
+      const endX = audioTag.current.buffered.end(i);
+      console.log(startX, endX);
+    }
+  }, [audioTag]);
+
+  useEffect(() => {
+    let intId;
+
+    if (isPlaying) {
+      intId = setInterval(function () {
+        let audioTime = Math.round(audioTag.current.currentTime);
+        let audioLength = Math.round(audioTag.current.duration);
+        setWidth((audioTime * 100) / audioLength + "%");
+
+          const loadSec = audioTag.current.buffered.end(audioTag.current.buffered.length-1);
+          setWidthLoad((loadSec * 100) / audioLength + "%");      
+      }, 1000);
+    }
+    return () => clearInterval(intId);
+  }, [isPlaying, audioTag]);
 
   console.log(trackName);
   return (
-    <div 
-    style={dFlex}
-    className={classes["wrapper"]}>
+    <div style={dFlex} className={classes["wrapper"]}>
       <audio
         preload="auto"
         ref={audioTag}
         src={"audio/" + trackName + ".mp3"}
       ></audio>
       <div className={classes["container"]}>
+        <div style={time} className={classes["time"]}></div>
+        <div style={load} className={classes["load"]}></div>
         <div className={classes["timeline"]}>
           <div className={classes["buttons"]}>
             <button>prev</button>
