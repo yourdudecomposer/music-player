@@ -1,6 +1,7 @@
 import classes from "./Header.module.scss";
 import React, { useState } from "react";
 import PopUpMenu from "../PopUpMenu/PopUpMenu";
+import BurgerButton from "../BurgerButton/BurgerButton";
 
 function Header() {
   const [isPopUpVisible, setIsPopUpVisible] = useState(false);
@@ -12,9 +13,10 @@ function Header() {
 
   return (
     <header className={classes["header"]}>
-      <button onClick={showPopUp} className={classes["open-menu"]}>
+      <BurgerButton />
+      {/* <button onClick={showPopUp} className={classes["open-menu"]}>
         <span />
-      </button>
+      </button> */}
       {isPopUpVisible ? <PopUpMenu list={menuList} /> : null}
     </header>
   );

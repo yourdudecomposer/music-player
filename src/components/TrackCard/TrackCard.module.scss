@@ -10,4 +10,7 @@ $size:  160px;
     margin-bottom: 5px;
     box-shadow: 10px 10px 23px -11px rgba(120, 82, 56, 0.78);
     border: .1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }

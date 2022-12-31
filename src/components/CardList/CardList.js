@@ -7,8 +7,7 @@ function CardList({ onCardClick }) {
   return (
     <div className={classes["wrapper"]}>
       <div className={classes["card-container"]}>
-        {arr.map((e, idx) => {
-          console.log(e)
+        {arr.map(e => {
           return <TrackCard trackName={e.name} onCardClick={onCardClick} trackFileName={e.audio} key={e.id} />
          } )}
       </div>

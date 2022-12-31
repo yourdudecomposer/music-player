@@ -1,0 +1,62 @@
+@use '../../assets/colors.scss' as colors;
+
+.burger {
+  width: 50px;
+  height: 40px;
+  position: relative;
+  transform: rotate(0deg);
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+display: block;
+    background-color: transparent;
+    border: none;
+margin-left: auto;
+
+  span {
+    display: block;
+    position: absolute;
+    height: 5px;
+    width: 100%;
+    background: black;
+    border: 0.1px solid;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: 0.25s ease-in-out;
+  }
+}
+
+.burger span:nth-child(1) {
+  top: 0px;
+}
+
+.burger span:nth-child(2),
+.burger span:nth-child(3) {
+  top: 17.5px;
+}
+
+.burger span:nth-child(4) {
+  bottom: 0;
+}
+
+.burger.open span:nth-child(1) {
+    top: 17.5px;
+    width: 0%;
+  left: 50%;
+}
+
+.burger.open span:nth-child(2) {
+  transform: rotate(45deg);
+}
+
+.burger.open span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+.burger.open span:nth-child(4) {
+    top: 17.5px;
+    width: 0%;
+  left: 50%;
+  border:none;
+}
