@@ -1,16 +1,16 @@
-@use '../../assets/colors.scss' as colors;
+@use "../../assets/colors.scss" as colors;
 
 .burger {
-  width: 50px;
-  height: 40px;
+  width: 40px;
+  height: 35px;
   position: relative;
   transform: rotate(0deg);
   transition: 0.5s ease-in-out;
   cursor: pointer;
-display: block;
-    background-color: transparent;
-    border: none;
-margin-left: auto;
+  display: block;
+  background-color: transparent;
+  border: none;
+  margin-left: auto;
 
   span {
     display: block;
@@ -33,7 +33,7 @@ margin-left: auto;
 
 .burger span:nth-child(2),
 .burger span:nth-child(3) {
-  top: 17.5px;
+  top: 15px;
 }
 
 .burger span:nth-child(4) {
@@ -41,8 +41,8 @@ margin-left: auto;
 }
 
 .burger.open span:nth-child(1) {
-    top: 17.5px;
-    width: 0%;
+  top: 15px;
+  width: 0%;
   left: 50%;
 }
 
@@ -55,8 +55,8 @@ margin-left: auto;
 }
 
 .burger.open span:nth-child(4) {
-    top: 17.5px;
-    width: 0%;
+  top: 15px;
+  width: 0%;
   left: 50%;
-  border:none;
+  border: none;
 }

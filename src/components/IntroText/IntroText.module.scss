@@ -1,3 +1,18 @@
 .text{
-    // margin-bottom: 80px;
+    background-color: #f2f3f4;
+    padding: 10px;
+    &::after{
+        content: '';
+        position: absolute;
+        height: 60px;
+        width: 100%;
+            background-color: #f2f3f4;
+
+    }
+   p{
+    
+    margin-bottom: 10px;
+    font-size: 18px;
+   }
+  
 }
