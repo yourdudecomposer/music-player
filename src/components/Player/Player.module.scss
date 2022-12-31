@@ -1,4 +1,4 @@
-@use '../../assets/colors.scss' as colors;
+@use "../../assets/colors.scss" as colors;
 
 .wrapper {
   width: 100%;
@@ -13,56 +13,71 @@
   transition-duration: 0.5s;
   .container {
     width: 80%;
-    // border: solid;
     position: relative;
-    .time{
+    .buttons {
       position: absolute;
-      background-color: red;
-      left: 0;
-      top: 0;
-      height: 100%;
-      border-radius: 5px;
-      z-index: -3;
-    }
-    .load{
-      position: absolute;
-      left: 0;
-      top: 0;
-      height: 100%;
-      border-radius: 5px;
-      background-color: green;
-
-      z-index: -4;
-      width: 100%;
+      left: calc(50% - 125px/2);
+      bottom:calc(50% - 25.5px);
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      .toggle{
+        border: none;
+        background-color: transparent;
+        width: 37px;
+        height:37px;
+        cursor: pointer;
+        svg{
+          width: 37px;
+          height:37px;
+        }
+      }
+      .play {
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        background-color: #fff;
+        border: none;
+        cursor: pointer;
+        svg {
+          border: 1px solid black;
+          border-radius: 50%;
+          width: 50px;
+          height: 50px;
+          .play {
+            transform: translateX(1px);
+          }
+          .pause {
+            transform: translateX(0px);
+          }
+        }
+      }
     }
     .timeline {
+      overflow: hidden;
+      position: relative;
       height: 10px;
       color: #000;
       border: 1px solid;
       border-radius: 5px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      .buttons {
-        .play {
-          border-radius: 50%;
-          width: 41px;
-          height: 41px;
-          background-color: #fff;
-          border: none;
-          svg {
-            border: 1px solid black;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            .play {
-              transform: translateX(1px);
-            }
-            .pause {
-              transform: translateX(0px);
-            }
-          }
-        }
+      .time {
+        position: absolute;
+        background-color: colors.$orange;
+        left: 0;
+        top: 0;
+        height: 100%;
+        border-radius: 5px;
+        z-index: -3;
+      }
+      .load {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        border-radius: 5px;
+        background-color: colors.$grey-orange;
+        z-index: -4;
+        width: 100%;
       }
     }
   }
