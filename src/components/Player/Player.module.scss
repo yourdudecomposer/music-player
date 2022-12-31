@@ -12,7 +12,7 @@
   align-items: center;
   transform: translateY(80px);
   transition-duration: 0.5s;
-  background-color: #40B4FF;
+  background-color: #40b4ff;
   background: linear-gradient(0deg, colors.$blue 0%, transparent 100%);
 
   .container {
@@ -22,20 +22,20 @@
 
     .buttons {
       position: absolute;
-      left: calc(50% - 125px/2);
-      bottom:calc(50% - 25.5px);
+      left: calc(50% - 125px / 2);
+      bottom: calc(50% - 25.5px);
       z-index: 3;
       display: flex;
       align-items: center;
-      .toggle{
+      .toggle {
         border: none;
         background-color: transparent;
         width: 37px;
-        height:37px;
+        height: 37px;
         cursor: pointer;
-        svg{
+        svg {
           width: 37px;
-          height:37px;
+          height: 37px;
         }
       }
       .play {
@@ -68,8 +68,8 @@
       border: 1px solid;
       border-radius: 5px;
       z-index: -5;
-      background-color:#f2f3f4;
- 
+      background-color: #f2f3f4;
+
       .time {
         position: absolute;
         background-color: colors.$blue;
@@ -86,7 +86,11 @@
         top: 0;
         height: 100%;
         border-radius: 5px;
-background: linear-gradient(45deg, colors.$grey-orange 0%, colors.$dark-grey-orange 100%);
+        background: linear-gradient(
+          45deg,
+          colors.$grey-orange 0%,
+          colors.$dark-grey-orange 100%
+        );
         z-index: -4;
         width: 100%;
       }
