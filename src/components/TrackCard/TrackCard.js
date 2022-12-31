@@ -2,18 +2,17 @@ import React, { useState } from "react";
 import BarAnimation from "../BarAnimation/BarAnimation";
 import classes from "./TrackCard.module.scss";
 
-function TrackCard({ trackName, trackFileName,onCardClick }) {
+function TrackCard({ trackName, trackFileName,onCardClick,isPlaying }) {
 
 
-const [isPlaying,setIsPlaying] = useState(false)
 function click(trackFileName) {
   onCardClick(trackFileName)
-  setIsPlaying(!isPlaying)
 }
 
   return (
     <div onClick={()=>click(trackFileName)} className={classes["card"]}>
-      {trackName}
+      <h2>{trackName}</h2>
+      
       {isPlaying?<BarAnimation/>:null}
     </div>
   );

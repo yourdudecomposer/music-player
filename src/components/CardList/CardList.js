@@ -3,13 +3,21 @@ import React from "react";
 import TrackCard from "../TrackCard/TrackCard";
 import arr from "../../db";
 
-function CardList({ onCardClick }) {
+function CardList({ onCardClick,trackName,isPlaying}) {
   return (
     <div className={classes["wrapper"]}>
       <div className={classes["card-container"]}>
-        {arr.map(e => {
-          return <TrackCard trackName={e.name} onCardClick={onCardClick} trackFileName={e.audio} key={e.id} />
-         } )}
+        {arr.map((e) => {
+          return (
+            <TrackCard
+              isPlaying={e.audio === trackName && isPlaying}
+              trackName={e.name}
+              onCardClick={onCardClick}
+              trackFileName={e.audio}
+              key={e.id}
+            />
+          );
+        })}
       </div>
     </div>
   );

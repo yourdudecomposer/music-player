@@ -43,7 +43,7 @@ function App() {
   return (
     <div className={classes["wrapper"]}>
       <Header />
-      <CardList onCardClick={onCardClick} />
+      <CardList isPlaying={isPlaying} trackName={trackName} onCardClick={onCardClick} />
       <IntroText />
       <Player
         dFlex={dFlex}

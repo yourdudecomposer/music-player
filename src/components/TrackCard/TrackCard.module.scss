@@ -13,4 +13,10 @@ $size:  160px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    h2{
+        font-weight: normal;
+        text-align: center;
+        font-size: 20px;
+        margin-top: 20px;
+    }
 }
