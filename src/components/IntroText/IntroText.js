@@ -12,7 +12,7 @@ function IntroText({trackName,audioContext}) {
      console.log(audioContext);
    }
 
-   setTimeout(()=>{audio.load()},1000)
+   setTimeout(()=>{audio.load()},10000)
 
    audio.play();
     return ( <section className={classes["text"]}>
