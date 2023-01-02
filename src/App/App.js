@@ -18,7 +18,7 @@ function App() {
         audioTag.current.play();
         alert('123')
       });
-      // audioTag.current.load();
+      audioTag.current.load();
     } else audioTag.current.play();
 
     setIsPlaying(true);
