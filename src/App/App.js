@@ -12,12 +12,22 @@ function App() {
   const [trackName, setTrackName] = useState("");
   const [dFlex, setDFlex] = useState({});
 
+  const audioContext = new AudioContext();
+
+  // const audio = new Audio("audio/" + trackName);
+  // const audio = new Audio("audio/01. Miyagi & Эндшпиль - Saloon.mp3")
+
+
   async function play(newTrackName) {
-    if (newTrackName !== trackName) {
-      await audioTag.current.load();
-      audioTag.current.play();
-      alert('спасибо')
-    } else audioTag.current.play();
+    if (audioContext.state === "suspended") {
+      audioContext.resume();
+      console.log(audioContext);
+    }
+    audio.play();
+    // if (newTrackName !== trackName) {
+    // await audioTag.current.load();
+    // audioTag.current.play();
+    // } else audioTag.current.play();
 
     setIsPlaying(true);
   }
@@ -26,11 +36,11 @@ function App() {
     audioTag.current.pause();
     setIsPlaying(false);
   }
-
+let audio;
   function onCardClick(newTrackName) {
-    setDFlex({ transform: "translateY(0px)" });
-    setTrackName(newTrackName);
-    play(newTrackName);
+    // setDFlex({ transform: "translateY(0px)" });
+     setTrackName(newTrackName);
+    
   }
   function togglePlay(newTrackName) {
     if (isPlaying) {
@@ -48,7 +58,7 @@ function App() {
         trackName={trackName}
         onCardClick={onCardClick}
       />
-      <IntroText />
+      <IntroText audioContext={audioContext} trackName={trackName} />
       <Player
         dFlex={dFlex}
         togglePlay={togglePlay}
