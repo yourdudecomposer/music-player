@@ -14,8 +14,9 @@ function App() {
 
   function play(newTrackName) {
     if (newTrackName !== trackName) {
-      audioTag.current.addEventListener("canplaythrough", (e) => {
+      audioTag.current.addEventListener("canplay", (e) => {
         audioTag.current.play();
+        alert('123')
       });
       audioTag.current.load();
     } else audioTag.current.play();
