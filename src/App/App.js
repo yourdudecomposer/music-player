@@ -14,7 +14,7 @@ function App() {
 
   function play(newTrackName) {
     if (newTrackName !== trackName) {
-      audioTag.current.addEventListener("canplaythrough", (e) => {
+      audioTag.current.addEventListener("canplay", (e) => {
         audioTag.current.play();
       });
     } else audioTag.current.play();
@@ -43,7 +43,11 @@ function App() {
   return (
     <div className={classes["wrapper"]}>
       <Header />
-      <CardList isPlaying={isPlaying} trackName={trackName} onCardClick={onCardClick} />
+      <CardList
+        isPlaying={isPlaying}
+        trackName={trackName}
+        onCardClick={onCardClick}
+      />
       <IntroText />
       <Player
         dFlex={dFlex}
