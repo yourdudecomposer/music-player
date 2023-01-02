@@ -12,13 +12,11 @@ function App() {
   const [trackName, setTrackName] = useState("");
   const [dFlex, setDFlex] = useState({});
 
-  function play(newTrackName) {
+  async function play(newTrackName) {
     if (newTrackName !== trackName) {
-      audioTag.current.addEventListener("canplay", (e) => {
-        audioTag.current.play();
-        alert('123')
-      });
-      audioTag.current.load();
+      await audioTag.current.load();
+      audioTag.current.play();
+      alert('спасибо')
     } else audioTag.current.play();
 
     setIsPlaying(true);
@@ -45,7 +43,11 @@ function App() {
   return (
     <div className={classes["wrapper"]}>
       <Header />
-      <CardList isPlaying={isPlaying} trackName={trackName} onCardClick={onCardClick} />
+      <CardList
+        isPlaying={isPlaying}
+        trackName={trackName}
+        onCardClick={onCardClick}
+      />
       <IntroText />
       <Player
         dFlex={dFlex}
