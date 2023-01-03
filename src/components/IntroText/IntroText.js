@@ -11,7 +11,7 @@ function IntroText() {
        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur doloribus quod laboriosam repudiandae dolorem ex est consectetur corrupti debitis cum fuga quo iste quisquam, accusantium ratione voluptatum odit error dolorum.
        Eaque sapiente natus laboriosam blanditiis obcaecati expedita quidem. Aut sunt quibusdam cupiditate iusto possimus voluptas. Illo sed aliquid commodi quibusdam tempora ab. Quae deserunt quam facere. Voluptatem maiores sequi officiis.
        Voluptates, ullam? Commodi facere cum itaque sapiente voluptas fugiat, eaque nesciunt voluptatem provident ducimus nisi, unde dolores quod quisquam officiis repellat consectetur? Modi distinctio, hic quisquam unde beatae repellendus minima.</p>
-       <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur quod impedit vel magnam maxime, modi error unde a at ducimus dolor consequatur beatae, harum porro, voluptates sunt. Repudiandae, magni quibusdam.</p>
+       <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur quod impedit vel magnam maxime, modi error unde a at ducimus dolor consequatur beatae, harum porro, voluptates sunt. Repudiandae, magni.</p>
        
     </section> );
 }
