@@ -1,20 +1,8 @@
 import classes from './IntroText.module.scss';
 import React from 'react';
 
-function IntroText({trackName,audioContext}) {
-    console.log(trackName)
-    let audio = new Audio("audio/" + trackName);
-    console.log(audio)
-    const source = audioContext.createMediaElementSource(audio);
-    source.connect(audioContext.destination);
-   if (audioContext.state === "suspended") {
-     audioContext.resume();
-     console.log(audioContext);
-   }
-
-   setTimeout(()=>{audio.load()},10000)
-
-   audio.play();
+function IntroText() {
+   
     return ( <section className={classes["text"]}>
        <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem dolorum mollitia vero? A veritatis eaque, distinctio veniam atque tempore ea amet commodi assumenda impedit aliquid eveniet? Cupiditate porro aliquam ipsum?

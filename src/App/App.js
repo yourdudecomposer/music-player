@@ -4,6 +4,7 @@ import Header from "../components/Header/Header";
 import Player from "../components/Player/Player";
 import IntroText from "../components/IntroText/IntroText";
 import { useState, useRef, useEffect } from "react";
+import Audio from "../Audio/Audio";
 
 function App() {
   const audioTag = useRef();
@@ -12,17 +13,11 @@ function App() {
   const [trackName, setTrackName] = useState("");
   const [dFlex, setDFlex] = useState({});
 
-  const audioContext = new AudioContext();
-
-  // const audio = new Audio("audio/" + trackName);
-  // const audio = new Audio("audio/01. Miyagi & Эндшпиль - Saloon.mp3")
-
-
   async function play(newTrackName) {
-    if (audioContext.state === "suspended") {
-      audioContext.resume();
-      console.log(audioContext);
-    }
+    // if (audioContext.state === "suspended") {
+    //   audioContext.resume();
+    //   console.log(audioContext);
+    // }
     audio.play();
     // if (newTrackName !== trackName) {
     // await audioTag.current.load();
@@ -40,6 +35,9 @@ let audio;
   function onCardClick(newTrackName) {
     // setDFlex({ transform: "translateY(0px)" });
      setTrackName(newTrackName);
+// audioTag.current.addEventListener('canplay',()=>{
+//       audioTag.current.play()
+//      })
     
   }
   function togglePlay(newTrackName) {
@@ -52,13 +50,14 @@ let audio;
 
   return (
     <div className={classes["wrapper"]}>
+      <Audio trackName={trackName}/>
       <Header />
       <CardList
         isPlaying={isPlaying}
         trackName={trackName}
         onCardClick={onCardClick}
       />
-      <IntroText audioContext={audioContext} trackName={trackName} />
+      <IntroText trackName={trackName} />
       <Player
         dFlex={dFlex}
         togglePlay={togglePlay}
