@@ -1,18 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PlayButton from "../../PlayButton/PlayButton";
 import VinylPlate from "../../VinylPlate/VinylPlate";
 import BarAnimation from "../BarAnimation/BarAnimation";
 import classes from "./TrackCard.module.scss";
 
 function TrackCard({ trackName, trackFileName, onCardClick, isPlaying }) {
+
+
   function click(trackFileName) {
     onCardClick(trackFileName);
   }
   return (
-    <div onClick={() => click(trackFileName)} className={classes["card"]}>
+    <div style={
+     isPlaying?{
+       position: 'sticky',
+       bottom:'0',
+       top:'0',
+      width:'170px',
+      height:'170px'
+    }:null
+      } onClick={() => click(trackFileName)} className={classes["card"]}>
       <h2>{trackName}</h2>
-      
-      <PlayButton/>
+      {isPlaying?<VinylPlate/>: <PlayButton/>}
+
+      {/* <PlayButton/> */}
       {/* <VinylPlate/> */}
       {/* {isPlaying ? (
         <svg

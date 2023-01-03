@@ -2,6 +2,8 @@
 
 $size: 160px;
 
+
+
 .card {
   background-color: colors.$orange;
   width: $size;
@@ -15,7 +17,9 @@ $size: 160px;
   justify-content: space-around;
   justify-content: space-between;
   align-items: center;
+  align-self: center;
   padding-bottom: 0;
+  transition: .5s;
   cursor: pointer;
   h2 {
     font-weight: normal;
