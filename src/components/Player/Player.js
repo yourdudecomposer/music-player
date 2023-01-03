@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import classes from "./Player.module.scss";
 
-function Player({ trackName, audioTag, isPlaying, togglePlay, dFlex }) {
+function Player({ trackName, audioTag, isPlaying, togglePlay, dFlex,audio }) {
   const [width, setWidth] = useState("0%");
   const [widthLoad, setWidthLoad] = useState("0%");
 
@@ -13,34 +13,36 @@ function Player({ trackName, audioTag, isPlaying, togglePlay, dFlex }) {
   };
 
   useEffect(() => {
-    for (let i = 0; i < audioTag.current.buffered.length; i++) {
-      const startX = audioTag.current.buffered.start(i);
-      const endX = audioTag.current.buffered.end(i);
+    for (let i = 0; i < audio.buffered.length; i++) {
+      const startX = audio.buffered.start(i);
+      const endX = audio.buffered.end(i);
       console.log(startX, endX);
     }
-  }, [audioTag]);
+  }, [audio]);
 
   useEffect(() => {
     let intId;
 
     if (isPlaying) {
       intId = setInterval(function () {
-        let audioTime = Math.round(audioTag.current.currentTime);
-        let audioLength = Math.round(audioTag.current.duration);
+        let audioTime = Math.round(audio.currentTime);
+        let audioLength = Math.round(audio.duration);
         setWidth((audioTime * 100) / audioLength + "%");
 
-        const loadSec = audioTag.current.buffered.end(
-          audioTag.current.buffered.length - 1
+        
+        const loadSec = audio.buffered.end(
+          audio.buffered.length - 1
         );
         setWidthLoad((loadSec * 100) / audioLength + "%");
       }, 1000);
     }
-    return () => clearInterval(intId);
-  }, [isPlaying, audioTag]);
+    return () => {clearInterval(intId);
+      audio= audio;
+    }
+  }, [isPlaying, audio]);
 
   return (
     <div style={dFlex} className={classes["wrapper"]}>
-      <audio preload="auto" ref={audioTag} src={"audio/" + trackName}></audio>
       <div className={classes["container"]}>
         <div className={classes["buttons"]}>
           <button className={classes["toggle"]}>

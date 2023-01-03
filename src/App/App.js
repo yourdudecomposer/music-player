@@ -3,54 +3,46 @@ import CardList from "../components/CardList/CardList";
 import Header from "../components/Header/Header";
 import Player from "../components/Player/Player";
 import IntroText from "../components/IntroText/IntroText";
-import { useState, useRef, useEffect } from "react";
-import Audio from "../Audio/Audio";
+import { useState } from "react";
+import AudioSource from "../AudioSource/AudioSource";
+import ReactPlayer from "react-player";
 
 function App() {
-  const audioTag = useRef();
-
+  let audio = new Audio("");
   const [isPlaying, setIsPlaying] = useState(false);
   const [trackName, setTrackName] = useState("");
   const [dFlex, setDFlex] = useState({});
 
-  async function play(newTrackName) {
-    // if (audioContext.state === "suspended") {
-    //   audioContext.resume();
-    //   console.log(audioContext);
-    // }
-    audio.play();
-    // if (newTrackName !== trackName) {
-    // await audioTag.current.load();
-    // audioTag.current.play();
-    // } else audioTag.current.play();
-
-    setIsPlaying(true);
-  }
-
-  function pause() {
-    audioTag.current.pause();
-    setIsPlaying(false);
-  }
-let audio;
   function onCardClick(newTrackName) {
-    // setDFlex({ transform: "translateY(0px)" });
-     setTrackName(newTrackName);
-// audioTag.current.addEventListener('canplay',()=>{
-//       audioTag.current.play()
-//      })
-    
+    console.log();
+    if (newTrackName !== trackName) {
+      setDFlex({ transform: "translateY(0px)" });
+      setTrackName(newTrackName);
+    }
   }
-  function togglePlay(newTrackName) {
+  function togglePlay() {
     if (isPlaying) {
-      pause();
+      audio.pause();
     } else {
-      play(newTrackName);
+      console.log(audio);
+      audio.play();
     }
   }
 
   return (
     <div className={classes["wrapper"]}>
-      <Audio trackName={trackName}/>
+      {/* <AudioSource
+        setIsPlaying={setIsPlaying}
+        audio={audio}
+        trackName={trackName}
+      /> */}
+      <ReactPlayer
+      width={0}
+      height={0}
+        url={"audio/" + trackName}
+        playing
+        onProgress={(e)=>console.log(e)}
+      />
       <Header />
       <CardList
         isPlaying={isPlaying}
@@ -58,13 +50,13 @@ let audio;
         onCardClick={onCardClick}
       />
       <IntroText trackName={trackName} />
-      <Player
+      {/* <Player
+        audio={audio}
         dFlex={dFlex}
         togglePlay={togglePlay}
         isPlaying={isPlaying}
-        audioTag={audioTag}
         trackName={trackName}
-      />
+      /> */}
     </div>
   );
 }
