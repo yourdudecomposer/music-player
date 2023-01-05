@@ -56,7 +56,7 @@ const fixedObj = useMemo(()=>({
       className={classes["card"]}
     >
       <h2>{trackName}</h2>
-      {isPlaying ? <VinylPlate /> : <PlayButton />}
+      {isPlaying ? <VinylPlate /> : <PlayButton  />}
     </div>
   );
 }

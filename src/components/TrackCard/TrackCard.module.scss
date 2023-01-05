@@ -3,6 +3,18 @@
 $size: 160px;
 
 
+.card:hover .lineOne {
+  transform: rotate(260deg);
+  -webkit-transform: rotate(260deg);
+  -moz-transform: rotate(260deg);
+  -o-transform: rotate(260deg);
+  transform-origin: 50% 50%;
+}
+
+.card:hover .lineTwo {
+  transform: rotate(-450deg);
+  transform-origin: 50% 50%;
+}
 
 .card {
   background-color: colors.$orange;

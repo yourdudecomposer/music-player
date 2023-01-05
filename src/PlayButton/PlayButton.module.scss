@@ -4,38 +4,38 @@
   width: 200px;
   //  margin: 120px auto;
   display: block;
-  cursor: pointer;
   transform-origin: 50% 50%;
   width: 60px;
   height: 60px;
   margin-bottom: 17px;
+  overflow: visible;
 }
 
 .play .triangle {
-  fill: rgba(22, 22, 22, 0);
-  transition: 500ms;
-  transform-origin: 50% 50%;
-}
-.play:hover .triangle {
-  fill: colors.$light-blue;
-  transform-origin: 50% 50%;
+  // fill:#BF6A30;
+  // fill:#A64300;
+  // fill:#FF8D40;
+  // fill:#ff7a20;
+  fill:#ff781d;
+
+  // fill:#FFAB73;
 }
 
 .play .lineOne,
 svg .lineTwo {
   transform-origin: 50% 50%;
-  transition: 1s;
+  transition: .75s;
 }
 
-.play:hover .lineOne {
-  transform: rotate(260deg);
-  -webkit-transform: rotate(260deg);
-  -moz-transform: rotate(260deg);
-  -o-transform: rotate(260deg);
-  transform-origin: 50% 50%;
-}
+// .play:hover .lineOne {
+//   transform: rotate(260deg);
+//   -webkit-transform: rotate(260deg);
+//   -moz-transform: rotate(260deg);
+//   -o-transform: rotate(260deg);
+//   transform-origin: 50% 50%;
+// }
 
-.play:hover .lineTwo {
-  transform: rotate(-450deg);
-  transform-origin: 50% 50%;
-}
+// .play:hover .lineTwo {
+//   transform: rotate(-450deg);
+//   transform-origin: 50% 50%;
+// }
