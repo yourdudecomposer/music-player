@@ -8,7 +8,8 @@ function TrackCard({
   trackName,
   trackFileName,
   onCardClick,
-  isPlaying,
+  isTrackPlaying,
+  isTrackPaused,
   isFieldInView
 }) {
   function click(trackFileName) {
@@ -17,8 +18,8 @@ function TrackCard({
 const stickyObj = useMemo(()=>({
   position: "sticky",
   top: "15px",
-  width: "170px",
-  height: "170px",
+  width: "166px",
+  height: "166px",
 }),[])
 const fixedObj = useMemo(()=>({
   position: "fixed",
@@ -35,17 +36,17 @@ const fixedObj = useMemo(()=>({
 
   useEffect(() => {
     
-    if (isPlaying && isFieldInView) {
+    if ((isTrackPlaying || isTrackPaused) &&  isFieldInView ) {
       console.log('isPlaying && isFieldInView')
       setObj(stickyObj);
-    } else if(isPlaying && !isFieldInView) {
+    } else if((isTrackPlaying || isTrackPaused) &&  !isFieldInView ) {
       setObj(fixedObj)
       console.log('isPlaying && !isFieldInView')
     }else {
       setObj(null)
       console.log('else')
     }
-  }, [isPlaying,inView,fixedObj,stickyObj,isFieldInView]);
+  }, [isTrackPlaying,isTrackPaused,inView,fixedObj,stickyObj,isFieldInView]);
 
   return (
     
@@ -56,7 +57,7 @@ const fixedObj = useMemo(()=>({
       className={classes["card"]}
     >
       <h2>{trackName}</h2>
-      {isPlaying ? <VinylPlate /> : <PlayButton  />}
+      {isTrackPlaying ? <VinylPlate /> : isTrackPaused? <>пауза че</>:<PlayButton  />}
     </div>
   );
 }

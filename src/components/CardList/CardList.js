@@ -5,7 +5,7 @@ import arr from "../../db";
 import { useInView } from "react-intersection-observer";
 
 
-function CardList({ player,onCardClick,trackName,isPlaying}) {
+function CardList({ player,onCardClick,trackName,isPlaying,isPaused}) {
 
   const { ref, inView, entry } = useInView({
     /* Optional options */
@@ -20,7 +20,8 @@ function CardList({ player,onCardClick,trackName,isPlaying}) {
             isFieldInView = {inView}
           
             player={player}
-              isPlaying={e.audio === trackName && isPlaying}
+              isTrackPlaying={e.audio === trackName && isPlaying}
+              isTrackPaused={e.audio === trackName && isPaused}
               trackName={e.name}
               onCardClick={onCardClick}
               trackFileName={e.audio}
