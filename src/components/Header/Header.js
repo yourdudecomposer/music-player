@@ -10,9 +10,16 @@ function Header() {
   function showPopUp() {
     setIsPopUpVisible(!isPopUpVisible);
   }
-
+  const links = [{ name: "home" }, { name: "about" }, { name: "contacts" }];
   return (
     <header className={classes["header"]}>
+      <nav>
+        <ul>
+          {links.map((el) => (
+            <li>{el.name}</li>
+          ))}
+        </ul>
+      </nav>
       <BurgerButton />
       {/* <button onClick={showPopUp} className={classes["open-menu"]}>
         <span />

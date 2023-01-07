@@ -1,3 +1,4 @@
+@use '../assets/colors.scss' as colors;
 .vinyl {
     margin-bottom: 17px;
     animation: rotate-center 6s linear infinite both;
@@ -10,5 +11,16 @@
     100% {
               transform: rotate(360deg);
     }
+  }
+
+
+  .blured-circle{
+    width: 60px;
+    height: 60px;
+background-color: colors.$blue;
+margin-bottom: 17px;
+border-radius: 50%;
+border: 1px solid black;
+filter: blur(3px);
   }
   

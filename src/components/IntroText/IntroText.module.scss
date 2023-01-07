@@ -1,12 +1,15 @@
+@use '../../assets/colors.scss' as colors;
+
+
 .text{
-    background-color: #f2f3f4;
+    background-color: colors.$background;
     padding: 10px;
    
    p{
     margin-bottom: 10px;
     font-size: 18px;
     &:last-child{
-        margin-bottom: 100px;
+        margin-bottom: 90px;
     }
    }
   

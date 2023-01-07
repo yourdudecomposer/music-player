@@ -1,11 +1,26 @@
 @use '../../assets/colors.scss' as colors;
 
 .header{
-padding: 15px;
-position: fixed;
-width: 100%;
+    nav{
+    z-index: 5;
+    width: 100%;
 top: 0;
-z-index: 5;
+    position: fixed;
+    background-color: colors.$background;
+    display: flex;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 4px rgb(0 0 0 / 50%);
+    ul{
+        display: flex;
+        gap: 50px;
+        li{
+            list-style-type: none;
+            text-transform: uppercase;
+        }
+    }
+}
 }
 
 .open-menu{
@@ -47,3 +62,11 @@ margin-left: auto;
 
     }
 }
+
+@media (max-width: 767px){
+   .header{
+    nav{
+        display: none;
+    }
+   }
+  }

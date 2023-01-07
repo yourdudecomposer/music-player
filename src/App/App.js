@@ -44,6 +44,8 @@ function App() {
         onCardClick={onCardClick}
       />
       <IntroText trackName={trackName} />
+      <IntroText trackName={trackName} />
+      <IntroText trackName={trackName} />
     </div>
   );
 }
