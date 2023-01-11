@@ -28,7 +28,13 @@ function App() {
   return (
     <div className={classes["wrapper"]}>
       <AudioPlayer
-        style={{ display: "none" }}
+        style={{
+          position: "absolute",
+          width: "1px",
+          height: "1px",
+          overflow: "hidden",
+          clip: "rect(0 0 0 0)",
+        }}
         ref={player}
         autoPlay
         src={"audio/" + trackName}
