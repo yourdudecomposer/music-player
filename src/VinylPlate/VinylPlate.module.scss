@@ -2,6 +2,7 @@
 .vinyl {
     margin-bottom: 17px;
     animation: rotate-center 6s linear infinite both;
+    z-index: 1;
   }
 
   @keyframes rotate-center {
