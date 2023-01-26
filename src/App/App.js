@@ -4,7 +4,8 @@ import Header from "../components/Header/Header";
 import IntroText from "../components/IntroText/IntroText";
 import { useState, useRef } from "react";
 import AudioPlayer from "react-h5-audio-player";
-
+import arr from "../db";
+console.log(arr);
 function App() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
@@ -25,6 +26,16 @@ function App() {
       setIsPaused(false);
     }
   }
+  function handleStop() {
+    let newTrackName;
+    let nextInd = arr.findIndex((el) => el.audio === trackName) + 1;
+    if (nextInd === arr.length) {
+      newTrackName = arr[0].audio;
+    } else newTrackName = arr[nextInd].audio;
+    setTrackName(newTrackName);
+    setIsPlaying(true);
+    setIsPaused(false);
+  }
   return (
     <div className={classes["wrapper"]}>
       <AudioPlayer
@@ -39,6 +50,7 @@ function App() {
         autoPlay
         src={"audio/" + trackName}
         onPlay={(e) => console.log("onPlay")}
+        onEnded={(e) => handleStop()}
       />
 
       <Header />
